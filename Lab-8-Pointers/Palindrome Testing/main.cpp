@@ -5,6 +5,9 @@
  */
 
 #include <iostream>
+#include <cstring>
+#include <locale>
+
 using namespace std;
 
 void transform(char*, char*);
@@ -60,12 +63,13 @@ int main() {
 //transform function to convert string into Palindrome Testing
 void transform(char * raw, char * testStr)
 {
+    locale loc;
     int k = 0; //Use for testStr incrementation
     for (int i = 0; i < strlen(raw); i++)
     {
-        if (isalpha(raw[i]) == 1 || isdigit(raw[i]) == 1)
+        if (isalpha(raw[i]) || isdigit(raw[i]))
         {
-            raw[i] = toupper(raw[i]);
+            raw[i] = toupper(raw[i], loc);
             testStr[k] = raw[i];
             k++;
         }
@@ -77,7 +81,7 @@ bool testPalindrome(char *str)
     int endingTest = 0; //Used to start at the end of the string for backward checking
     for (int i = 0; i < strlen(str); i++) //This for loop is used to get the true size of str
     {
-        if (isalpha(str[i]) == 1 || isdigit(str[i]) == 1)
+        if (isalpha(str[i]) || isdigit(str[i]))
         {
             endingTest++;
         }
