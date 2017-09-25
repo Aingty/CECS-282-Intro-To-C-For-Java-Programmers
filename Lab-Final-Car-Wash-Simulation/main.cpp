@@ -13,7 +13,7 @@ using namespace std;
 
 int main() {
     // Initializing Random Seeds
-    srand(time(NULL));
+    //srand(time(NULL));
     queue<int> arriveTime;
     Average averageTime; //averageTime will be used to get the average wait time
     Washer washingMachine; //This is our washer
